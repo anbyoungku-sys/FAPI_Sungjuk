@@ -28,8 +28,14 @@ init_db()
 # --- 2. 사이드바 메뉴 구성 ---
 st.set_page_config(page_title="성적 관리 시스템", layout="wide")
 menu = ["홈", "학생 등록", "전체 명단 조회", "학생 정보 수정", "학생 정보 삭제"]
-choice = st.sidebar.selectbox("메뉴 선택", menu)
+choice = st.sidebar.radio(
+    "이동할 메뉴를 선택하세요",
+    ["홈", "학생 등록", "전체 명단 조회", "학생 정보 수정", "학생 정보 삭제"],
+    index=0
+)
 
+st.sidebar.markdown("---")
+st.sidebar.info("학번은 등록 시 자동 생성됩니다.")
 # --- 3. 기능별 화면 구현 ---
 
 # (1) 홈 화면
